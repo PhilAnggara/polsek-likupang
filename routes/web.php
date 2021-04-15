@@ -19,3 +19,5 @@ Route::get('/', 'DashboardController@index')
 Route::resource('kendaraan', 'KendaraanController');
 Route::resource('senjata', 'SenjataController');
 Route::resource('kantor', 'KantorController');
+
+Auth::routes();
