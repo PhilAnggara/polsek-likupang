@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kendaraan;
+use App\Http\Requests\KendaraanRequest;
 use Illuminate\Http\Request;
 
 class KendaraanController extends Controller
@@ -14,7 +15,11 @@ class KendaraanController extends Controller
      */
     public function index()
     {
-        return view('pages.kendaraan');
+        $items = Kendaraan::all();
+        
+        return view('pages.kendaraan', [
+            'items' => $items
+        ]);
     }
 
     /**
@@ -33,18 +38,21 @@ class KendaraanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KendaraanRequest $request)
     {
-        //
+        $data = $request->all();
+
+        Kendaraan::create($data);
+        return redirect()->route('kendaraan.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Kendaraan  $kendaraan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Kendaraan $kendaraan)
+    public function show($id)
     {
         //
     }
@@ -52,10 +60,10 @@ class KendaraanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Kendaraan  $kendaraan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kendaraan $kendaraan)
+    public function edit($id)
     {
         //
     }
@@ -64,22 +72,31 @@ class KendaraanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Kendaraan  $kendaraan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kendaraan $kendaraan)
+    public function update(KendaraanRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Kendaraan::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('kendaraan.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Kendaraan  $kendaraan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kendaraan $kendaraan)
+    public function destroy($id)
     {
-        //
+        $item = Kendaraan::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('kendaraan.index');
     }
 }

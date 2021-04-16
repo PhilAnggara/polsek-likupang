@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Senjata;
+use App\Http\Requests\SenjataRequest;
 use Illuminate\Http\Request;
 
 class SenjataController extends Controller
@@ -14,7 +15,11 @@ class SenjataController extends Controller
      */
     public function index()
     {
-        return view('pages.senjata');
+        $items = Senjata::all();
+        
+        return view('pages.senjata', [
+            'items' => $items
+        ]);
     }
 
     /**
@@ -33,18 +38,21 @@ class SenjataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SenjataRequest $request)
     {
-        //
+        $data = $request->all();
+
+        Senjata::create($data);
+        return redirect()->route('senjata.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Senjata  $senjata
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Senjata $senjata)
+    public function show($id)
     {
         //
     }
@@ -52,10 +60,10 @@ class SenjataController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Senjata  $senjata
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Senjata $senjata)
+    public function edit($id)
     {
         //
     }
@@ -64,22 +72,31 @@ class SenjataController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Senjata  $senjata
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Senjata $senjata)
+    public function update(SenjataRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Senjata::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('senjata.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Senjata  $senjata
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Senjata $senjata)
+    public function destroy($id)
     {
-        //
+        $item = Senjata::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('senjata.index');
     }
 }

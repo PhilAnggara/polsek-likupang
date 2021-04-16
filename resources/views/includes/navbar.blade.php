@@ -23,7 +23,7 @@
     <li class="nav-item dropdown no-arrow mx-1">
       <span class="nav-link dropdown-toggle">
         <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#logoutModal">
-          <i class="fas fa-sign-out-alt fa-sm fa-fw text-gray-400"></i>
+          <i class="fas fa-sign-out-alt"></i>
         </button>
       </span>
     </li>

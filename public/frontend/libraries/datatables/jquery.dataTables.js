@@ -11539,7 +11539,8 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+			"sInfo": "",
+			// "sInfo": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
 	
 	
 			/**

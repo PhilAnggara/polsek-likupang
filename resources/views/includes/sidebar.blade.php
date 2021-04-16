@@ -37,7 +37,7 @@
   <!-- Nav Item - Senjata -->
   <li class="nav-item {{ Request::is('senjata') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('senjata.index') }}">
-      <i class="fab fa-accusoft"></i>
+      <i class="far fa-dot-circle"></i>
       <span>Senjata</span></a>
   </li>
 

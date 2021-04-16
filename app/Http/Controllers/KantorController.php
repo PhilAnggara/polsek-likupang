@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kantor;
+use App\Http\Requests\KantorRequest;
 use Illuminate\Http\Request;
 
 class KantorController extends Controller
@@ -14,7 +15,11 @@ class KantorController extends Controller
      */
     public function index()
     {
-        return view('pages.kantor');
+        $items = Kantor::all();
+        
+        return view('pages.kantor', [
+            'items' => $items
+        ]);
     }
 
     /**
@@ -33,9 +38,12 @@ class KantorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KantorRequest $request)
     {
-        //
+        $data = $request->all();
+
+        Kantor::create($data);
+        return redirect()->route('kantor.index');
     }
 
     /**
@@ -67,9 +75,15 @@ class KantorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(KantorRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Kantor::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('kantor.index');
     }
 
     /**
@@ -80,6 +94,9 @@ class KantorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Kantor::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('kantor.index');
     }
 }

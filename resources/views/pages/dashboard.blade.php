@@ -20,7 +20,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah Kendaraan R2</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $r2 }}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-motorcycle fa-2x text-gray-300"></i>
@@ -37,7 +37,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah Kendaraan R4</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $r4 }}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-car-side fa-2x text-gray-300"></i>
@@ -54,10 +54,10 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Jumlah Senjata</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $senjata }}</div>
               </div>
               <div class="col-auto">
-                <i class="fas fa-file-invoice-dollar fa-2x text-gray-300"></i>
+                <i class="far fa-dot-circle fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Alat Kantor</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $kantor }}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-tv fa-2x text-gray-300"></i>

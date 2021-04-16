@@ -11,6 +11,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('pages.dashboard');
+        $r2 = Kendaraan::where('jenis', 'R2')->count();
+        $r4 = Kendaraan::where('jenis', 'R4')->count();
+        $senjata = Senjata::all()->count();
+        $kantor = Kantor::all()->count();
+
+        return view('pages.dashboard', compact('r2','r4','senjata','kantor'));
     }
 }
