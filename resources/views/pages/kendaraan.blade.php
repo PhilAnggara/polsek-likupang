@@ -114,7 +114,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="editModalLabel">Edit</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -125,11 +125,11 @@
             @csrf
             <div class="form-group">
               <label for="merk_kendaraan">Merk Kendaraan</label>
-              <input type="text" class="form-control" name="merk_kendaraan" value="{{ $edit->warna }}">
+              <input type="text" class="form-control" name="merk_kendaraan" value="{{ $edit->merk_kendaraan }}">
             </div>
             <div class="form-group">
               <label for="no_polisi">No. Polisi</label>
-              <input type="text" class="form-control" name="no_polisi" value="{{ $edit->warna }}">
+              <input type="text" class="form-control" name="no_polisi" value="{{ $edit->no_polisi }}">
             </div>
             <div class="form-group">
               <label for="warna">Warna</label>
@@ -138,27 +138,23 @@
             <div class="form-group">
               <label for="jenis">Jenis</label>
                 <select name="jenis" required class="form-control custom-select">
-                  <option value="{{ $edit->warna }}" selected >-- Pilih Jenis --</option>
+                  <option value="{{ $edit->jenis }}" selected >-- Pilih Jenis --</option>
                   <option value="R2">R2</option>
                   <option value="R4">R4</option>
                 </select>
             </div>
             <div class="form-group">
               <label for="penanggung_jawab">Penanggung Jawab</label>
-              <input type="text" class="form-control" name="penanggung_jawab" value="{{ $edit->warna }}">
+              <input type="text" class="form-control" name="penanggung_jawab" value="{{ $edit->penanggung_jawab }}">
             </div>
             <div class="form-group">
               <label for="no_telp">No. Telp</label>
-              <input type="number" class="form-control" name="no_telp" value="{{ $edit->warna }}">
+              <input type="number" class="form-control" name="no_telp" value="{{ $edit->no_telp }}">
             </div>
             <button type="submit" class="btn btn-primary btn-block">
-              Tambah
+              Simpan
             </button>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -171,26 +167,23 @@
     <div class="modal-dialog modal-sm modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="hapusModalLabel">Hapus?</h5>
+          <h5 class="modal-title" id="hapusModalLabel">Hapus {{ $item->merk_kendaraan }}?</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form action="{{ url('logout') }}" method="POST">
-            @csrf
-            <div class="row">
-              <div class="col-6 text-center">
-                <button class="btn btn-secondary btn-block" type="button" data-dismiss="modal">Batalkan</button>
-              </div>
-              <div class="col-6 text-center">
-                <form action="{{ route('kendaraan.destroy', $hapus->id) }}" method="POST">
-                  @csrf
-                  @method('delete')
-                  <button class="btn btn-danger btn-block">Hapus</button>
-              </div>
+          <div class="row">
+            <div class="col-6 text-center">
+              <button class="btn btn-secondary btn-block" type="button" data-dismiss="modal">Batalkan</button>
             </div>
-          </form>
+            <div class="col-6 text-center">
+              <form action="{{ route('kendaraan.destroy', $hapus->id) }}" method="POST">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger btn-block">Hapus</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
