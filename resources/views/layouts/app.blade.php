@@ -59,7 +59,7 @@
       </div>
     </div>
   </div>
-  <!-- End of logout moadl -->
+  <!-- Akhir logout moadl -->
 
   @stack('prepend-script')
   @include('includes.script')

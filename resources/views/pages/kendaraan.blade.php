@@ -138,9 +138,8 @@
             <div class="form-group">
               <label for="jenis">Jenis</label>
                 <select name="jenis" required class="form-control custom-select">
-                  <option value="{{ $edit->jenis }}" selected >{{ $edit->jenis }}</option>
-                  <option value="R2">R2</option>
-                  <option value="R4">R4</option>
+                  <option {{ $edit->jenis == "R2" ? "selected" : "" }} value="R2">R2</option>
+                  <option {{ $edit->jenis == "R4" ? "selected" : "" }} value="R4">R4</option>
                 </select>
             </div>
             <div class="form-group">
