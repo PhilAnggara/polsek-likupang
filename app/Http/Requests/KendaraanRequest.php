@@ -13,7 +13,7 @@ class KendaraanRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class KendaraanRequest extends FormRequest
             'no_polisi' => 'required|max:255',
             'warna' => 'required|max:255',
             'jenis' => 'required|max:255',
-            'penganggung_jawab' => 'required|max:255',
+            'penanggung_jawab' => 'required|max:255',
             'no_telp' => 'required|max:255'
         ];
     }

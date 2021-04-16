@@ -11561,7 +11561,8 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Menampilkan 0 sampai 0 dari 0 data",
+			"sInfoEmpty": "",
+			// "sInfoEmpty": "Menampilkan 0 sampai 0 dari 0 data",
 	
 	
 			/**
@@ -11583,7 +11584,8 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(difilter dari _MAX_ total data)",
+			"sInfoFiltered": "",
+			// "sInfoFiltered": "(difilter dari _MAX_ total data)",
 	
 	
 			/**

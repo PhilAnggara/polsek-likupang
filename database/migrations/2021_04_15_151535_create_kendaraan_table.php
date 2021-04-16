@@ -19,7 +19,7 @@ class CreateKendaraanTable extends Migration
             $table->string('no_polisi');
             $table->string('warna');
             $table->string('jenis');
-            $table->string('penganggung_jawab');
+            $table->string('penanggung_jawab');
             $table->string('no_telp');
             $table->softDeletes();
             $table->timestamps();
