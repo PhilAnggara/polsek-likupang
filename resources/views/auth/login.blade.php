@@ -28,7 +28,7 @@
 
                 <div class="form-label-group">
                   <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" placeholder="Password" required
-                  oninvalid="this.setCustomValidity('Password tidak boleh kosong')"
+                  oninvalid="this.setCustomValidity('Password belum dimasukan')"
                   oninput="this.setCustomValidity('')">
                   <label for="password">Password</label>
                   @error('password')

@@ -6,7 +6,7 @@
 
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Senjata</h1>
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahModal" id="tambah">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahModal">
       <i class="fas fa-plus-circle"></i>
       Tambah Data
     </button>
@@ -32,11 +32,11 @@
               <td>{{ $item->penanggung_jawab }}</td>
               <td>{{ $item->no_telp }}</td>
               <td>
-                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#editModal-{{ $item->id }}" id="edit">
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#editModal-{{ $item->id }}">
                   <i class="far fa-edit"></i>
                   Edit
                 </button>
-                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal-{{ $item->id }}" id="hapus">
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal-{{ $item->id }}">
                   <i class="fas fa-trash"></i>
                   Hapus
                 </button>
@@ -139,7 +139,7 @@
     <div class="modal-dialog modal-sm modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="hapusModalLabel">Hapus {{ $item->nama_senjata }}?</h5>
+          <h5 class="modal-title" id="hapusModalLabel">Hapus {{ $hapus->nama_senjata }}?</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -155,6 +155,7 @@
                   @csrf
                   @method('delete')
                   <button class="btn btn-danger btn-block">Hapus</button>
+                </form>
               </div>
             </div>
           </div>

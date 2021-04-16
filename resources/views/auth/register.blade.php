@@ -51,7 +51,7 @@
                 </div>
                 
                 <div class="form-label-group">
-                  <input type="password" id="password-confirm" class="form-control" name="password_confirmation" required
+                  <input type="password" id="password-confirm" class="form-control" name="password_confirmation" placeholder="Konfiramsi Password" required
                   oninvalid="this.setCustomValidity('Password belum dimasukan')"
                   oninput="this.setCustomValidity('')">
                   <label for="password-confirm">Konfirmasi Password</label>
