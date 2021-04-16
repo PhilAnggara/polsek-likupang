@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DashboardController@index')
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/', 'DashboardController@index')
     ->name('dashboard');
 
-Route::resource('kendaraan', 'KendaraanController');
-Route::resource('senjata', 'SenjataController');
-Route::resource('kantor', 'KantorController');
+    Route::resource('kendaraan', 'KendaraanController');
+    Route::resource('senjata', 'SenjataController');
+    Route::resource('kantor', 'KantorController');
+    
+});
 
 Auth::routes();
